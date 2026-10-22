@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Dear Future Me</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <b>Dear Future Me</b>
+      <nav aria-label="Principal">
+        <a href="#/">Início</a><a href="#/escrever">Escrever</a
+        ><a href="#/cartas">Minhas cartas</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="view" id="v-home" aria-label="Início">
+        <div class="stage" id="stage">
+          <div class="hero">
+            <h1>Dear Future Me</h1>
+            <p>Uma mensagem para a pessoa que você está se tornando.</p>
+            <p><i>Guarde um momento. Reencontre quem você era.</i></p>
+          </div>
+          <div class="env" id="env">
+            <div class="back"></div>
+            <div class="lp" id="lp">
+              <h2>O que você gostaria de dizer?</h2>
+              <ul class="qs" id="qs"></ul>
+              <button class="btn go" id="goW">Escrever minha carta</button>
+            </div>
+            <div class="front"></div>
+            <div class="flap" id="flap"></div>
+            <div class="seal" id="seal" aria-hidden="true">F</div>
+          </div>
+          <button class="btn" id="start" style="margin-top: 22px; z-index: 7">
+            Começar
+          </button>
+          <div class="cue" id="cue">role a página para abrir a carta</div>
+        </div>
+      </section>
+
+      <section class="view" id="v-write">
+        <div class="wrap">
+          <h1 id="edTitle">Dê um título à sua carta</h1>
+          <div class="ed" style="margin-top: 18px">
+            <div id="edMain"></div>
+            <aside class="side" aria-label="Configurações da carta">
+              <label
+                >Quando você quer abrir esta carta?<input
+                  type="datetime-local"
+                  id="fOpen"
+              /></label>
+              <label>Categoria<select id="fCat"></select></label>
+              <label
+                >Tema visual<select id="fTheme">
+                  <option value="classic">Carta clássica</option>
+                  <option value="kraft">Memórias em kraft</option>
+                  <option value="diary">Diário vintage</option>
+                  <option value="minimal">Minimalista</option>
+                </select></label
+              >
+              <div>
+                <button class="btn alt" id="addPh" type="button">
+                  Adicionar uma foto</button
+                ><input type="file" id="fFile" accept="image/*" hidden />
+              </div>
+              <div id="phOpts" hidden>
+                <label
+                  >Composição<select id="fLy">
+                    <option value="cover">Fotografia como capa</option>
+                    <option value="polaroid">
+                      Fotografia em moldura polaroid
+                    </option>
+                    <option value="inline">Fotografia integrada à folha</option>
+                  </select></label
+                >
+                <label
+                  >Enquadramento vertical<input
+                    type="range"
+                    id="fPos"
+                    min="0"
+                    max="100"
+                    value="50"
+                /></label>
+                <button class="btn alt" id="rmPh" type="button">
+                  Remover foto
+                </button>
+              </div>
+              <label
+                style="
+                  grid-auto-flow: column;
+                  justify-content: start;
+                  align-items: center;
+                  gap: 8px;
+                "
+                ><input type="checkbox" id="fSnd" /> Som de máquina de
+                escrever</label
+              >
+              <div class="err" id="err" role="alert"></div>
+              <button class="btn" id="bPrev" type="button">
+                Visualizar minha carta
+              </button>
+              <button class="btn" id="bSave" type="button">
+                Guardar minha carta
+              </button>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="v-list">
+        <div class="wrap">
+          <h1>Minhas cartas</h1>
+          <p>
+            Cada carta guarda uma versão de quem você foi. Qual delas você quer
+            reencontrar?
+          </p>
+          <div class="filters" role="search">
+            <input
+              type="search"
+              id="qS"
+              placeholder="Pesquisar"
+              aria-label="Pesquisar"
+            /><select id="qSt" aria-label="Estado">
+              <option value="">Todos os estados</option>
+              <option>Esperando o momento certo</option>
+              <option>Pronta para ser aberta</option>
+              <option>Aberta</option></select
+            ><select id="qC" aria-label="Categoria"></select
+            ><select id="qO" aria-label="Ordem">
+              <option value="a">Abertura mais próxima</option>
+              <option value="d">Abertura mais distante</option>
+              <option value="c">Mais recentes</option>
+            </select>
+          </div>
+          <div id="list"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      Suas cartas ficam apenas neste navegador e não são sincronizadas. Se você
+      limpar o armazenamento do navegador, elas podem ser perdidas.
+    </footer>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <div class="box" id="box"></div>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
