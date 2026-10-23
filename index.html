@@ -32,11 +32,7 @@
           </div>
           <div class="env" id="env">
             <div class="back"></div>
-            <div class="lp" id="lp">
-              <h2>O que você gostaria de dizer?</h2>
-              <ul class="qs" id="qs"></ul>
-              <button class="btn go" id="goW">Escrever minha carta</button>
-            </div>
+            <div class="lp" id="lp"><h2>O que você gostaria de dizer?</h2></div>
             <div class="front"></div>
             <div class="flap" id="flap"></div>
             <div class="seal" id="seal" aria-hidden="true">F</div>
@@ -45,6 +41,11 @@
             Começar
           </button>
           <div class="cue" id="cue">role a página para abrir a carta</div>
+        </div>
+        <div class="flow" id="flow">
+          <p class="hint">Toque em uma pergunta para usá-la como inspiração.</p>
+          <ul class="qs" id="qs"></ul>
+          <button class="btn go" id="goW">Escrever minha carta</button>
         </div>
       </section>
 
@@ -80,7 +81,9 @@
                     <option value="polaroid">
                       Fotografia em moldura polaroid
                     </option>
-                    <option value="inline">Fotografia integrada à folha</option>
+                    <option value="integrated">
+                      Fotografia integrada à folha
+                    </option>
                   </select></label
                 >
                 <label
@@ -105,6 +108,11 @@
                 ><input type="checkbox" id="fSnd" /> Som de máquina de
                 escrever</label
               >
+              <p class="note" id="sealNote">
+                <b>Atenção:</b> ao guardar, a carta é selada e não poderá mais
+                ser editada. Ela só poderá ser aberta na data escolhida ou
+                excluída.
+              </p>
               <div class="err" id="err" role="alert"></div>
               <button class="btn" id="bPrev" type="button">
                 Visualizar minha carta
